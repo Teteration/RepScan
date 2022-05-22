@@ -21,7 +21,7 @@ while read ip
 
 
                 data="{\"username\": \"RepScan\", \"content\": \"[`date +%y/%m/%d`] Port $line open on $1\"}"
-                curl -s "https://discord.com/api/webhooks/976212223368241193/j6IfnIEY2wwk9aAT5Z-kk2D4W-F33lQ0UU37zEzqmVKRSPc9I8xbEASE2_O3HGpK9RzG" \
+                curl -s "your_discord_WebHook" \
                 -H "Content-Type: application/json" \
                 -d "$data"
 
