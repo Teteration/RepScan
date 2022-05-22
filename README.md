@@ -27,3 +27,5 @@ and
 ```
 sudo chmod +x repscan.sh
 ```
+make a discord WebHook and put it on Code to notify you new founded ports
+```
