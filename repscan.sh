@@ -8,7 +8,7 @@ while read ip
 #for each ip do scan 
     do
 
-        sudo nmap -Pn -sS $ip | head -n -2 | sed '1,5d'| cut -d "/" -f 1 >> temp_result
+        sudo nmap -Pn -p- -sS $ip | head -n -2 | sed '1,5d'| cut -d "/" -f 1 >> temp_result
         echo "start at `date "+%D|%T"`" >> ./result/$ip
 
 
@@ -24,7 +24,7 @@ while read ip
                 #if signature in file, it means at least the ip scaned 1 time, so notify it
                 then
                     echo notify
-                    data="{\"username\": \"RepScan\", \"content\": \"[`date +%D\|%T`] Port $line open on $1\"}"
+                    data="{\"username\": \"RepScan\", \"content\": \"[`date +%D\|%T`] Port $line open on $ip\"}"
                     curl -s "https://discord.com/api/webhooks/976212223368241193/j6IfnIEY2wwk9aAT5Z-kk2D4W-F33lQ0UU37zEzqmVKRSPc9I8xbEASE2_O3HGpK9RzG" \
                     -H "Content-Type: application/json" \
                     -d "$data"
